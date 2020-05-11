@@ -1,19 +1,30 @@
 {
   "name": "pelivspeli",
   "version": "1.0.0",
-  "description": "",
   "main": "script.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mysql": "^2.18.1",
     "save": "^2.4.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wooangie/Acamica_PelivsPeli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wooangie/Acamica_PelivsPeli/issues"
+  },
+  "homepage": "https://github.com/wooangie/Acamica_PelivsPeli#readme",
+  "description": ""
 }
