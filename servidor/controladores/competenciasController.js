@@ -31,6 +31,7 @@ function traerOpciones(req, res){
         if(resultado.length == 0){
             return res.status(404).json('No existe la competencia');
         }
+        let nombre = resultado[0].nombre;
         let genero = resultado[0].genero_id;
         let director = resultado[0].director_id;
         let actor = resultado[0].actor_id;
@@ -58,7 +59,7 @@ function traerOpciones(req, res){
             sql += 'pelicula join actor_pelicula on pelicula.id = actor_pelicula.pelicula_id join competencia on competencia.actor_id = actor_pelicula.actor_id  where actor_pelicula.actor_id = ' + actor;
         }
         else {
-            sql += 'pelicula JOIN votacion ON pelicula.id = votacion.pelicula_id JOIN competencia ON competencia.id = votacion.competencia_id WHERE competencia.id = ' + idCompetencia;
+            sql = 'SELECT pelicula.id, pelicula.titulo, pelicula.poster FROM pelicula';
         }
 
         sql += ' ORDER BY RAND() LIMIT 0,2;'
@@ -68,7 +69,7 @@ function traerOpciones(req, res){
             let nombreCompetencia = result[0].nombre
             let response = {
                 'peliculas': result,
-                'competencia': nombreCompetencia
+                'competencia': nombre
             };
             res.json(response)
         })
